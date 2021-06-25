@@ -1,0 +1,108 @@
+html {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-image: linear-gradient(#cbf3f0, #ffbf69);
+
+    font-family: 'Helvetica', sans-serif;
+}
+
+.card {
+    width: 25%;
+    height: 70%;
+
+    margin: 5%;
+    background-color: #dbe4ee;
+
+    border: 2px solid #2a2d34;
+    border-radius: 50px;
+}
+
+.title {
+    margin-top: 50px;
+
+    font-size: 40px;
+
+    text-align: center;
+}
+
+.text {
+    margin-left: 10%;
+    margin-right: 10%;
+
+    font-size: 25px;
+}
+
+.game {
+    margin: auto;
+    margin-top: 100px;
+}
+
+.row td {
+    border: 8px solid #2a2d34;
+    padding: 10px;
+    height: 80px;
+    width: 80px;
+    float: left;
+    margin-left: 1px;
+    margin-right: 1px;
+
+    font-weight: bold;
+
+    font-size: 80px;
+    text-align: center;
+
+    border-radius: 50%;
+    color: #2a2d34;
+}
+
+.O {
+    background-color: #ffbf69;
+}
+.X {
+    background-color: #cbf3f0;
+}
+
+.lose {
+    transform: scale(90%);
+    transition: 0.5s;
+}
+.winnerO {
+    background-color: #ff9f1c;
+
+    animation-name: bounce;
+    animation-timing-function: ease;
+
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+}
+.winnerX {
+    background-color: #2ec4b6;
+    transform: scale(105%);
+
+    animation-name: bounce;
+    animation-timing-function: ease;
+
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes bounce {
+    0% {
+        transform: scale(95%);
+    }
+    50% {
+        transform: scale(105%);
+    }
+    100% {
+        transform: scale(95%);
+    }
+}

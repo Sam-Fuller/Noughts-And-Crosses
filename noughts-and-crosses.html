@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="style.css" type="text/css"/>
+		<title>Noughts and Crosses</title>
+	</head>
+	<body>
+		<section class="card">
+			<h1 class="title">How to Play</h1>
+
+			<p class="text">
+				Noughts and crosses is a game played by two people.<br><br>
+				The two players take it in turns to place peices, one places Os the other Xs.<br><br>
+				The winning player is the first player to get three peices in a line (horizontally, vertically, or diagonally).
+			</p>
+		</section>
+
+		<section class="card">
+			<h1 class="title">Noughts and Crosses</h1>
+
+			<table class="game">
+				<tr class="row">
+					<td id="cell(0, 0)" onclick="place(this)"> <div /> </td>
+					<td id="cell(1, 0)" onclick="place(this)"> <div /> </td>
+					<td id="cell(2, 0)" onclick="place(this)"> <div /> </td>
+				</tr>
+				<tr class="row">
+					<td id="cell(0, 1)" onclick="place(this)"> <div /> </td>
+					<td id="cell(1, 1)" onclick="place(this)"> <div /> </td>
+					<td id="cell(2, 1)" onclick="place(this)"> <div /> </td>
+				</tr>
+				<tr class="row">
+					<td id="cell(0, 2)" onclick="place(this)"> <div /> </td>
+					<td id="cell(1, 2)" onclick="place(this)"> <div /> </td>
+					<td id="cell(2, 2)" onclick="place(this)"> <div /> </td>
+				</tr>
+			</table>
+		</section>
+
+		<div id="scripts">
+			<script src="script.js"></script>
+		</div>
+	</body>
+</html>
