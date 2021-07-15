@@ -2,6 +2,16 @@ html {
     height: 100%;
 }
 
+@media screen and (max-width: 1450px) {
+    body {
+        flex-direction: column;
+    }
+
+    .card {
+        width: 50% !important;
+    }
+}
+
 body {
     margin: 0;
     height: 100%;
