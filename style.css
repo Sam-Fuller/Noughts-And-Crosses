@@ -1,38 +1,36 @@
-html {
-    height: 100%;
-}
+:root {
+    --base-light: #dbe4ee;
+    --base-dark: #2a2d34;
 
-@media screen and (max-width: 1450px) {
-    body {
-        flex-direction: column;
-    }
+    --blue-light: #cbf3f0;
+    --blue-dark: #2ec4b6;
 
-    .card {
-        width: 50% !important;
-    }
+    --orange-light: #ffbf69;
+    --orange-dark: #ff9f1c;
 }
 
 body {
-    margin: 0;
+    margin: 0px;
+    min-height: 100vh;
     height: 100%;
 
     display: flex;
     justify-content: center;
-    align-items: center;
 
-    background-image: linear-gradient(#cbf3f0, #ffbf69);
+    background-image: linear-gradient(var(--blue-light), var(--orange-light));
+    background-attachment: fixed;
 
     font-family: 'Helvetica', sans-serif;
 }
 
 .card {
-    width: 25%;
-    height: 70%;
+    width: 500px;
+    height: 750px;
 
-    margin: 5%;
-    background-color: #dbe4ee;
+    margin: 75px;
+    background-color: var(--base-light);
 
-    border: 2px solid #2a2d34;
+    border: 2px solid var(--base-dark);
     border-radius: 50px;
 }
 
@@ -53,32 +51,69 @@ body {
 
 .game {
     margin: auto;
-    margin-top: 100px;
+    margin-top: 25%;
+    margin-bottom: 25%;
 }
 
-.row td {
-    border: 8px solid #2a2d34;
-    padding: 10px;
+td {
     height: 80px;
     width: 80px;
-    float: left;
+
+    border: 8px solid var(--base-dark);
+    padding: 10px;
+    border-radius: 50%;
+
     margin-left: 1px;
     margin-right: 1px;
 
-    font-weight: bold;
+    float: left;
 
+    font-weight: bold;
     font-size: 80px;
     text-align: center;
+    color: var(--base-dark);
+}
 
-    border-radius: 50%;
-    color: #2a2d34;
+@media screen and (max-width: 1450px) {
+    body {
+        flex-direction: column;
+        align-items: center;
+        flex-flow: column;
+
+        scroll-snap-type: y mandatory;
+        overflow-y: scroll;
+    }
+
+    .card {
+        height: 100%;
+        min-height: calc(100vh - 2 * 75px);
+
+        scroll-snap-align: center;
+
+        width: calc(100vw - 2 * 75px);
+    }
+
+    .title {
+        font-size: 100px;
+    }
+
+    .text {
+        font-size: 60px;
+    }
+
+    td {
+        height: 17vw;
+        width: 17vw;
+
+        font-size: 17vw;
+    }
 }
 
 .O {
-    background-color: #ffbf69;
+    background-color: var(--orange-light);
 }
 .X {
-    background-color: #cbf3f0;
+    background-color: var(--blue-light);
 }
 
 .lose {
@@ -86,7 +121,7 @@ body {
     transition: 0.5s;
 }
 .winnerO {
-    background-color: #ff9f1c;
+    background-color: var(--orange-dark);
 
     animation-name: bounce;
     animation-timing-function: ease;
@@ -95,8 +130,7 @@ body {
     animation-iteration-count: infinite;
 }
 .winnerX {
-    background-color: #2ec4b6;
-    transform: scale(105%);
+    background-color: var(--blue-dark);
 
     animation-name: bounce;
     animation-timing-function: ease;

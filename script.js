@@ -9,13 +9,13 @@ let currentPlayer = playerA;
 let won = false;
 
 const place = (box) => {
-    if (box.innerText != `` || won) return;
+    if (box.innerText === `` || won) {
+        box.innerText = currentPlayer;
+        box.className = `${currentPlayer}`;
 
-    box.innerText = currentPlayer;
-    box.className = `${currentPlayer}`;
-
-    checkGameBoard();
-    currentPlayer = currentPlayer === playerA ? playerB : playerA;
+        checkGameBoard();
+        currentPlayer = currentPlayer === playerA ? playerB : playerA;
+    }
 };
 
 const getCoordString = (x, y) => {
@@ -27,7 +27,6 @@ const getCell = (x, y) => {
         x: x,
         y: y,
         element: document.getElementById(getCoordString(x, y)),
-        value: document.getElementById(getCoordString(x, y)).className,
     };
 };
 
@@ -43,13 +42,10 @@ const getAllCells = () => {
     return cells;
 };
 
-const doCellsMatch = (a, b, c) => {
-    if (a.value !== `` && a.value === b.value && b.value === c.value) {
-        return true;
-    }
-
-    return false;
-};
+const doCellsMatch = (a, b, c) =>
+    a.element.className !== ``
+    && a.element.className === b.element.className
+    && b.element.className === c.element.className;
 
 const checkForWin = (a, b, c) => {
     if (doCellsMatch(a, b, c)) {
@@ -57,9 +53,9 @@ const checkForWin = (a, b, c) => {
             row.map((cell) => (cell.element.className += ` lose`)),
         );
 
-        a.element.className = `winner${a.value}`;
-        b.element.className = `winner${a.value}`;
-        c.element.className = `winner${a.value}`;
+        a.element.className = `winner${a.element.className}`;
+        b.element.className = `winner${a.element.className}`;
+        c.element.className = `winner${a.element.className}`;
 
         won = true;
     }
